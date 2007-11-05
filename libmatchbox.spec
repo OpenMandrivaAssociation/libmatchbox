@@ -3,12 +3,12 @@
 
 %define major 	1
 %define libname %mklibname mb %major
-%define develname %mklibname -d
+%define develname %mklibname -d mb
 
 Summary: 	Libraries for the Matchbox Desktop
 Name: 		%name
 Version: 	%version
-Release: 	%mkrel 2
+Release: 	%mkrel 3
 Url: 		http://matchbox-project.org
 License: 	LGPLv2+
 Group: 		System/Libraries
