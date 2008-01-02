@@ -15,6 +15,7 @@ Group: 		System/Libraries
 Source: 	http://matchbox-project.org/sources/%{name}/%{version}/%{name}-%{version}.tar.bz2
 
 BuildRequires:	X11-devel pango-devel png-devel jpeg-devel Xsettings-client-devel
+Buildroot: 	%_tmppath/%name-%version-buildroot
 
 %description
 Matchbox is a base environment for the X Window System running on non-desktop
