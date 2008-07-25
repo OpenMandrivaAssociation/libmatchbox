@@ -8,7 +8,7 @@
 Summary: 	Libraries for the Matchbox Desktop
 Name: 		%name
 Version: 	%version
-Release: 	%mkrel 3
+Release: 	%mkrel 5
 Url: 		http://matchbox-project.org
 License: 	LGPLv2+
 Group: 		System/Libraries
