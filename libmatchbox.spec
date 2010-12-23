@@ -10,7 +10,9 @@ URL: 		http://matchbox-project.org
 License: 	LGPLv2+
 Group: 		System/Libraries
 Source0:	http://matchbox-project.org/sources/%{name}/%{version}/%{name}-%{version}.tar.bz2
-BuildRequires:	X11-devel
+BuildRequires:	libx11-devel
+BuildRequires:	libxext-devel
+BuildRequires:	libxft-devel
 BuildRequires:	pango-devel
 BuildRequires:	png-devel
 BuildRequires:	jpeg-devel
@@ -51,7 +53,7 @@ Static libraries and header files from %{name}
 
 %install
 rm -rf %{buildroot}
-%makeinstall
+%makeinstall_std
 
 %clean
 rm -rf %{buildroot}
