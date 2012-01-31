@@ -5,19 +5,20 @@
 Summary: 	Libraries for the Matchbox Desktop
 Name: 		libmatchbox
 Version: 	1.9
-Release: 	%mkrel 10
+Release: 	11
 URL: 		http://matchbox-project.org
 License: 	LGPLv2+
 Group: 		System/Libraries
 Source0:	http://matchbox-project.org/sources/%{name}/%{version}/%{name}-%{version}.tar.bz2
+Patch:		libmatchbox-1.9-libpng-1.5.patch
+Patch1:		libmatchbox-1.9-linkage.patch
 BuildRequires:	libx11-devel
 BuildRequires:	libxext-devel
 BuildRequires:	libxft-devel
-BuildRequires:	pango-devel
+BuildRequires:	pkgconfig(pango) pkgconfig(pangoxft)
 BuildRequires:	png-devel
 BuildRequires:	jpeg-devel
 BuildRequires:	Xsettings-client-devel
-Buildroot: 	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 Matchbox is a base environment for the X Window System running on non-desktop
@@ -46,14 +47,16 @@ Static libraries and header files from %{name}
 
 %prep
 %setup -q
+%patch -p1 -b .libpng15~
+%patch1 -p1 -b .linkage~
 
 %build
 %configure2_5x --enable-xsettings --enable-png --enable-jpeg --enable-pango
-%make
+%make CFLAGS="%optflags `pkg-config --cflags pango pangoxft`"
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
+rm -rf %{buildroot}%{_libdir}/*.la
 
 %clean
 rm -rf %{buildroot}
@@ -74,6 +77,5 @@ rm -rf %{buildroot}
 %doc AUTHORS ChangeLog README
 %{_libdir}/pkgconfig/*.pc
 %{_libdir}/*.so
-%{_libdir}/*.la
 %{_libdir}/*.a
 %{_includedir}/libmb/*.h
