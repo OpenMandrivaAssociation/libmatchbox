@@ -36,9 +36,6 @@ Libraries for the Matchbox Desktop.
 Group:		Development/C
 Summary:	Static libraries and header files from %{name}
 Provides:	matchbox-devel = %{version}-%{release}
-Provides:	%{name}-devel = %{version}-%{release}
-Provides:	lib%{name}-devel = %{version}-%{release}
-Provides:	libmb-devel = %{version}-%{release}
 Requires:	%{libname} = %{version}-%{release}
 Obsoletes:	%mklibname -d mb 1
 
