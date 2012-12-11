@@ -5,18 +5,18 @@
 Summary: 	Libraries for the Matchbox Desktop
 Name: 		libmatchbox
 Version: 	1.9
-Release: 	11
+Release: 	12
 URL: 		http://matchbox-project.org
 License: 	LGPLv2+
 Group: 		System/Libraries
 Source0:	http://matchbox-project.org/sources/%{name}/%{version}/%{name}-%{version}.tar.bz2
 Patch0:		libmatchbox-1.9-libpng-1.5.patch
 Patch1:		libmatchbox-1.9-linkage.patch
-BuildRequires:	libx11-devel
-BuildRequires:	libxext-devel
-BuildRequires:	libxft-devel
+BuildRequires:	pkgconfig(x11)
+BuildRequires:	pkgconfig(xext)
+BuildRequires:	pkgconfig(xft)
 BuildRequires:	pkgconfig(pango) pkgconfig(pangoxft)
-BuildRequires:	png-devel
+BuildRequires:	pkgconfig(libpng)
 BuildRequires:	jpeg-devel
 BuildRequires:	Xsettings-client-devel
 
@@ -70,6 +70,9 @@ Static libraries and header files from %{name}
 %{_includedir}/libmb/*.h
 
 %changelog
+* Tue Dec 11 2012 Per Øyvind Karlsen <peroyvind@mandriva.org> 1.9-12
+- cleanups
+
 * Tue Jan 31 2012 Bernhard Rosenkraenzer <bero@bero.eu> 1.9-11
 + Revision: 769968
 - Drop dependency on libpng 1.2
