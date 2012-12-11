@@ -67,10 +67,12 @@ Static libraries and header files from %{name}
 %{_libdir}/pkgconfig/*.pc
 %{_libdir}/*.so
 %{_libdir}/*.a
+%dir %{_includedir}/libmb
 %{_includedir}/libmb/*.h
 
 %changelog
 * Tue Dec 11 2012 Per Øyvind Karlsen <peroyvind@mandriva.org> 1.9-12
+- own /usr/include/libmb
 - cleanups
 
 * Tue Jan 31 2012 Bernhard Rosenkraenzer <bero@bero.eu> 1.9-11
