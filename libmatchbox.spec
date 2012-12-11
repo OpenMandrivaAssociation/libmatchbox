@@ -1,6 +1,6 @@
 %define major 	1
-%define libname %mklibname mb %major
-%define develname %mklibname -d mb
+%define libname %mklibname mb %{major}
+%define devname %mklibname -d mb
 
 Summary: 	Libraries for the Matchbox Desktop
 Name: 		libmatchbox
@@ -32,17 +32,17 @@ Summary:	Inter-toolkit configuration settings
 %description -n %{libname}
 Libraries for the Matchbox Desktop.
 
-%package -n %{develname}
-Group:          Development/C
-Summary:        Static libraries and header files from %{name}
+%package -n	%{devname}
+Group:		Development/C
+Summary:	Static libraries and header files from %{name}
 Provides:	matchbox-devel = %{version}-%{release}
-Provides:       %{name}-devel = %{version}-%{release}
+Provides:	%{name}-devel = %{version}-%{release}
 Provides:	lib%{name}-devel = %{version}-%{release}
 Provides:	libmb-devel = %{version}-%{release}
-Requires:       %{libname} = %{version}-%{release}
+Requires:	%{libname} = %{version}-%{release}
 Obsoletes:	%mklibname -d mb 1
 
-%description -n %{develname}
+%description -n	%{devname}
 Static libraries and header files from %{name}
 
 %prep
@@ -50,25 +50,24 @@ Static libraries and header files from %{name}
 %apply_patches
 
 %build
-%configure2_5x --enable-xsettings --enable-png --enable-jpeg --enable-pango
-%make CFLAGS="%optflags `pkg-config --cflags pango pangoxft`"
+%configure2_5x	--enable-xsettings \
+		--enable-png \
+		--enable-jpeg \
+		--enable-pango
+%make CFLAGS="%{optflags} `pkg-config --cflags pango pangoxft`"
 
 %install
 %makeinstall_std
-rm -rf %{buildroot}%{_libdir}/*.la
 
 %files -n %{libname}
-%defattr(-,root,root)
 %{_libdir}/*.so.%{major}*
 
-%files -n %{develname}
-%defattr(-,root,root)
+%files -n %{devname}
 %doc AUTHORS ChangeLog README
 %{_libdir}/pkgconfig/*.pc
 %{_libdir}/*.so
 %{_libdir}/*.a
 %{_includedir}/libmb/*.h
-
 
 %changelog
 * Tue Jan 31 2012 Bernhard Rosenkraenzer <bero@bero.eu> 1.9-11
