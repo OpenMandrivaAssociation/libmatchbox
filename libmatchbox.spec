@@ -1,14 +1,14 @@
-%define major 	1
-%define libname %mklibname mb %{major}
-%define devname %mklibname -d mb
+%define	major	1
+%define	libname	%mklibname mb %{major}
+%define	devname	%mklibname -d mb
 
-Summary: 	Libraries for the Matchbox Desktop
-Name: 		libmatchbox
-Version: 	1.9
-Release: 	12
-URL: 		http://matchbox-project.org
-License: 	LGPLv2+
-Group: 		System/Libraries
+Summary:	Libraries for the Matchbox Desktop
+Name:		libmatchbox
+Version:	1.9
+Release:	12
+URL:		http://matchbox-project.org
+License:	LGPLv2+
+Group:		System/Libraries
 Source0:	http://matchbox-project.org/sources/%{name}/%{version}/%{name}-%{version}.tar.bz2
 Patch0:		libmatchbox-1.9-libpng-1.5.patch
 Patch1:		libmatchbox-1.9-linkage.patch
@@ -18,7 +18,7 @@ BuildRequires:	pkgconfig(xft)
 BuildRequires:	pkgconfig(pango) pkgconfig(pangoxft)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	jpeg-devel
-BuildRequires:	Xsettings-client-devel
+BuildRequires:Xsettings-client-devel
 
 %description
 Matchbox is a base environment for the X Window System running on non-desktop
@@ -29,7 +29,7 @@ for which screen space, input mechanisms or system resources are limited.
 Group:		System/Libraries
 Summary:	Inter-toolkit configuration settings
 
-%description -n %{libname}
+%description -n	%{libname}
 Libraries for the Matchbox Desktop.
 
 %package -n	%{devname}
@@ -72,6 +72,7 @@ Static libraries and header files from %{name}.
 
 %changelog
 * Tue Dec 11 2012 Per Øyvind Karlsen <peroyvind@mandriva.org> 1.9-12
+- compile with -Os (smaller size for installer)
 - own /usr/include/libmb
 - cleanups
 
