@@ -43,7 +43,7 @@ Requires:	%{libname} = %{version}-%{release}
 Obsoletes:	%mklibname -d mb 1
 
 %description -n	%{devname}
-Static libraries and header files from %{name}
+Static libraries and header files from %{name}.
 
 %prep
 %setup -q
@@ -54,7 +54,7 @@ Static libraries and header files from %{name}
 		--enable-png \
 		--enable-jpeg \
 		--enable-pango
-%make CFLAGS="%{optflags} `pkg-config --cflags pango pangoxft`"
+%make CFLAGS="%{optflags} -Os `pkg-config --cflags pango pangoxft`"
 
 %install
 %makeinstall_std
