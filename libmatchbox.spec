@@ -4,14 +4,14 @@
 
 Summary:	Libraries for the Matchbox Desktop
 Name:		libmatchbox
-Version:	1.9
-Release:	19
+Version:	1.11
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://matchbox-project.org
-Source0:	http://matchbox-project.org/sources/%{name}/%{version}/%{name}-%{version}.tar.bz2
-Patch0:		libmatchbox-1.9-libpng-1.5.patch
-Patch1:		libmatchbox-1.9-linkage.patch
+Source0:	http://downloads.yoctoproject.org/releases/matchbox/libmatchbox/%{version}/%{name}-%{version}.tar.bz2
+Patch0:		libpng.patch
+Patch1:		libmatchbox-1.9-underlinking.patch
 BuildRequires:	jpeg-devel
 BuildRequires:	Xsettings-client-devel
 BuildRequires:	pkgconfig(libpng)
@@ -19,6 +19,7 @@ BuildRequires:	pkgconfig(pango)
 BuildRequires:	pkgconfig(pangoxft)
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xext)
+BuildRequires:	pkgconfig(xft)
 BuildRequires:	pkgconfig(xft)
 
 %description
@@ -45,12 +46,14 @@ Static libraries and header files from %{name}.
 %prep
 %setup -q
 %apply_patches
+autoreconf -fiv
 
 %build
-%configure2_5x \
+%configure \
 	--disable-static \
 	--enable-xsettings \
 	--enable-png \
+	--enable-xft \
 	--enable-jpeg \
 	--enable-pango
 %make CFLAGS="%{optflags} -Os `pkg-config --cflags pango pangoxft`"

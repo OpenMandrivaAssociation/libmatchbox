@@ -1,0 +1,12 @@
+diff --git a/tests/Makefile.am b/tests/Makefile.am
+index 14bed31..491e492 100644
+--- a/tests/Makefile.am
++++ b/tests/Makefile.am
+@@ -26,6 +26,7 @@ endif
+ 
+ noinst_PROGRAMS = dump-image
+ dump_image_SOURCES=dump-image.c
++dump_image_LDADD= @XLIBS_LIBS@
+ 
+ EXTRA_DIST = oh-overlayed.png oh.png oh-scaled.png overlay.png oh.jpg oh.xpm \
+              dot-desktop.c pixbuf.c oh.h
