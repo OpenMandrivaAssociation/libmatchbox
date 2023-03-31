@@ -5,7 +5,7 @@
 Summary:	Libraries for the Matchbox Desktop
 Name:		libmatchbox
 Version:	1.11
-Release:	3
+Release:	4
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://matchbox-project.org
