@@ -8,7 +8,7 @@ Version:	1.11
 Release:	4
 License:	LGPLv2+
 Group:		System/Libraries
-Url:		http://matchbox-project.org
+Url:		https://matchbox-project.org
 Source0:	http://downloads.yoctoproject.org/releases/matchbox/libmatchbox/%{version}/%{name}-%{version}.tar.bz2
 Patch0:		libpng.patch
 Patch1:		libmatchbox-1.9-underlinking.patch
