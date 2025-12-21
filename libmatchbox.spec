@@ -12,6 +12,11 @@ Url:		https://matchbox-project.org
 Source0:	http://downloads.yoctoproject.org/releases/matchbox/libmatchbox/%{version}/%{name}-%{version}.tar.bz2
 Patch0:		libpng.patch
 Patch1:		libmatchbox-1.9-underlinking.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	jpeg-devel
 BuildRequires:	Xsettings-client-devel
 BuildRequires:	pkgconfig(libpng)
